@@ -1,0 +1,22 @@
+<!-- feedback form form -->
+<style>
+
+textarea {
+	
+	border-radius: 15px
+	border: 5px solid gray;
+	
+}
+</style>
+		<form id="form" action="https://formspree.io/zochggamesmail@gmail.com" method="post" style="text-align:center">
+		<input type = "text" name="Name" value="" placeholder="Your Name" style="width:50%"/>
+		<input type = "text" name="Email" value="" placeholder="Your Email" style="width:50%"/>
+		<input type = "text" name="Subject" value="" placeholder="Subject" style="width:50%"/>
+		<br>
+		<label style="color:white">Your Suggestion/Feedback</label> <br>
+		<textarea name="msg" placeholder="Type your text here..." style="height:80px; width:50%; border-radius: 15px
+	border: 5px solid gray;"></textarea>
+		<br>
+		<input type="submit" id="send" value="Submit Feedback"/>
+		</form>
+		<h3><?php include "secure_email_code.php"?></h3> 
