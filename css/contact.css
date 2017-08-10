@@ -1,0 +1,43 @@
+.head {
+
+  text-align: center;
+  
+  color: white;
+  
+  background-color: rgb(50, 50, 50)
+
+}
+
+
+
+body {
+
+  background-color: rgb(25, 25, 25);
+
+}
+
+#form {
+
+  text-align: center;
+  width: 100%;
+
+}
+
+input, textarea{
+
+
+  width: 50%;
+
+}
+
+textarea {
+
+  height: 80px;
+
+}
+
+label {
+
+  color: white;
+
+}
