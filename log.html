@@ -326,6 +326,14 @@ color: red;
 color: gray;
 }
 
+#les {
+color: peru;
+}
+
+#mor {
+color: yellow;
+}
+
 body {
 background-color: #222222;
 }
@@ -347,7 +355,7 @@ background-color: #222222;
 <br>
 <h2 class="log-title">To Come (JC)</h3>
 <ul>
-<li><p id="com">* Updated graphics</p></li>
+<li><p id="les">* Updated graphics [34%]</p></li>
 <li><p id="com">* More upgrades</p></li>
 <li><p id="com">* Proper english</p></li>
 </ul>
@@ -455,7 +463,13 @@ background-color: #222222;
 </ul>
 </div>
 
-
+<ul class="log">
+ <li><span id="add">* Added</span></li>
+ <li><span id="rem">* Removed</span> </li>
+ <li><span id="com">* Coming</span> </li>
+ <li><span id="les">* Less than 50% done</span></li> 
+ <li><span id="mor">* More than 50% done</span> </li>
+</ul>
 
 <script>
 var log = document.getElementById("log");
