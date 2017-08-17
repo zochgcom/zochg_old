@@ -1,8 +1,20 @@
 <html><head>
-<title>Zochg</title>
+<link rel="shortcut icon" href="lol.ico"/>
+<title>         Zochg</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+#cp {
+
+position: fixed;
+bottom: -5px;
+opacity: 0.75;
+background-color: #999999;
+border-radius: 10px
+
+}
+
 html {
 
 cursor:url(curs.png), auto;
@@ -31,6 +43,7 @@ height: 10px;
 width: 5px;
 border-radius: 100px;
 padding-right: 20px;
+cursor:url(curs.png);
 
 }
 
@@ -38,6 +51,7 @@ padding-right: 20px;
 
 background-color: red;
 border-radius: 100px;
+cursor:url(curs.png);
 
 }
 
@@ -295,6 +309,10 @@ body {
 background-color: #222222;
 }
 
+#cp {
+font-family: sans-serif;
+}
+
 </style>
 </head>
 
@@ -303,6 +321,8 @@ background-color: #222222;
 <h2 id="un2"><a class="a-orange" href="contact.html" title="Contact us">Zochg</a></h2>
 <p id="un"><a href="contact.html" class="a-orange">Contact us</a> | <a href="log.html" class="a-orange">Log</a> | <a href="buy.html" class="a-orange">Buy</a> | <a href="#" id="login" class="a-orange">Online</a> | <a href="#" id="bout" class="a-orange">Download</a></p>
 </div>
+
+<h4 id="cp">© 2014 - 2017 Zochg inc. All rights reserved!<h4>
 
 <div id="darke">
 </div>
@@ -324,12 +344,12 @@ background-color: #222222;
 <p style="color: white;">Click to goto game</p>
 <ul>
 <li title="Jar Clicker"><a href="http://zochgcom.github.io/jar-clicker/" class="a-orange" id="pjc"><p>Play Jar Clicker</p>
-<img src="New_jar.png" width="50px" height="50px"></a>
+<img src="New_jar.png" width="50px" height="50px" alt="Jar Clicker logo"></a>
 
 </li>
 
 <li title="Evolution Cell"><a href="http://zochgcom.github.io/egar/" class="a-orange" id="eg"><p>Play Evolution Cell</p>
-<img src="egar.png" width="50px" height="50px"></a>
+<img src="egar.png" width="50px" height="50px" alt="Egar logo"></a>
 
 </li>
 
@@ -368,16 +388,23 @@ background-color: #222222;
 <ul>
 <li title="Download Pe'Kay"><a href="http://download987.mediafireuserdownload.com/g8o2hpww4t8g/pkv9mhmf64cfr6m/Pe%5C%27Kay.zip" download class="a-orange" id="pka"><p>Download Pe'Kay</p></a>
 <!--pekay tinyurl picture-->
-<img src="https://tinyurl.com/ybjstzvn">
+<img src="https://tinyurl.com/ybjstzvn" alt="Pe'Kay logo">
 
 </li>
 
 </ul>
 </div>
 
-
+<div id="jclick" style="text-align: center; margin-top: 150px; border-radius: 10px; border: 5px solid black; background-color: gray; color: white; margin-left: 50px; margin-right: 50px;">
+<h3 style="text-align: center;">Jar Clicker</h3>
+<img src="jc.png" width="80%" style="text-align: center;" alt="Picture of Jar Clicker">
+</div>
 
 <script>
+var online = navigator.onLine;
+
+var pka = document.getElementById("pka");
+
 var log = document.getElementById("log");
 
 var pka = document.getElementById("pka");
@@ -494,7 +521,10 @@ document.getElementById("darke").style.display = "block";
 err.innerHTML = "an error has occured";
 }
 
+//anti right clicker/
+document.addEventListener('contextmenu', event => event.preventDefault());
 </script>
+
 
 
 </body></html>
