@@ -5,13 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
+button {
+border-radius: 4px;
+border: 2px solid gray;
+background-color: white
+}
+
+button:hover {
+background-color: #666666; 
+cursor: url(curs2.png), auto;
+}
+
+#chatbot {
+font-family: sans-serif;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+border: 1px solid black;
+border-bottom: 2px solid black;
+border-radius: 6px;
+background-color: #444444;
+padding: 5px;
+position: fixed;
+z-index: 5;
+right: 0;
+bottom: -150px;
+width: 216px;
+}
+
 #cp {
 
 position: fixed;
 bottom: -5px;
 opacity: 0.75;
 background-color: #999999;
-border-radius: 10px
+border-radius: 4px
 
 }
 
@@ -38,20 +68,13 @@ to {-webkit-transform: scale(1)}
 
 ::-webkit-scrollbar {
 
-opacity: 0;
-height: 10px;
-width: 5px;
-border-radius: 100px;
-padding-right: 20px;
-cursor:url(curs.png);
+display: none
 
 }
 
 ::-webkit-scrollbar-thumb {
 
-background-color: red;
-border-radius: 100px;
-cursor:url(curs.png);
+display: none;
 
 }
 
@@ -313,10 +336,28 @@ background-color: #222222;
 font-family: sans-serif;
 }
 
+#his {
+background-color: white;
+
+height: 100px;
+width: 100%;
+
+overflow: auto;
+}
+
 </style>
 </head>
 
 <body>
+
+<div id="chatbot" onselectstart='return false;'>
+<label style="cursor:url(curs2.png), auto;">Chatbot</label><a id="ocd" onclick="moof()"><label id="ocd2" style="position: fixed; right: 1; cursor:url(curs2.png), auto;">▲</label></a>
+<div id="his">
+</div>
+<input spellcheck="false" autocomplete="off" type="text" id="chat" placeholder="ask me something!" onkeypress="handle(event)" style="resize: none; width: 216px;"></input><br>
+<button id="send" onclick="send()">send</button>
+</div>
+
 <div class="header">
 <h2 id="un2"><a class="a-orange" href="contact.html" title="Contact us">Zochg</a></h2>
 <p id="un"><a href="contact.html" class="a-orange">Contact us</a> | <a href="log.html" class="a-orange">Log</a> | <a href="buy.html" class="a-orange">Buy</a> | <a href="#" id="login" class="a-orange">Online</a> | <a href="#" id="bout" class="a-orange">Download</a></p>
@@ -401,6 +442,245 @@ font-family: sans-serif;
 </div>
 
 <script>
+
+var asked = false;
+var cColor = 1;
+var open = false;
+var open2 = false;
+var error = false;
+
+//Chatbot script
+
+ function handle(e){
+        if(e.keyCode === 13){
+          send();
+        }
+    }
+
+var status = 0;
+
+var ocd = document.getElementById("ocd");
+var ocd2 = document.getElementById("ocd2");
+var chatbot = document.getElementById("chatbot");
+var his = document.getElementById("his");
+var text = document.getElementById("chat");
+var nul = "";
+
+function send() {
+if (text.value != nul) {
+
+var t = document.createTextNode("[You] " + text.value);
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+
+if (text.value == "hello" || text.value == "hi" || text.value == "helo" || text.value == "hey" || text.value == "heya") {
+var t = document.createTextNode("[Bot] Hello User!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+} else if (text.value == "are you real" || text.value == "are u real" || text.value == "r you real" || text.value == "r u real" || text.value == "are you a real person?" || text.value == "are you real?" || text.value == "are u real?" || text.value == "r you real?" || text.value == "r u real?" || text.value == "are you a real person") {
+var t = document.createTextNode("[Bot] No im not real. Im just here to help you!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+} else if (text.value == "games") {
+var t = document.createTextNode("[Bot] Online or Downloadable?");
+var b = document.createElement("br");
+
+his.appendChild(t);
+his.appendChild(b);
+
+asked = true;
+
+} else if (text.value == "online" && asked == true || text.value == "Online" && asked == true) {
+
+var t = document.createTextNode("[Bot] Theese are some of our Online games!");
+var b = document.createElement("br");
+
+his.appendChild(t);
+his.appendChild(b);
+
+login();
+asked = false;
+
+} else if (text.value == "Downloadable" && asked == true || text.value == "downloadable" && asked == true) {
+var t = document.createTextNode("[Bot] Theese are some of our Downloadable games!");
+var b = document.createElement("br");
+
+his.appendChild(t);
+his.appendChild(b);
+about();
+asked = false;
+} else if (text.value == "clear") {
+
+clear();
+
+} else if (text.value == "Who made you" || text.value == "who made you" || text.value == "Who made u" || text.value == "who made u" || text.value == "Who made you?" || text.value == "who made you?" || text.value == "Who made u?" || text.value == "who made u?") {
+var t = document.createTextNode("[Bot] Oggy and Spoody made me.");
+var g = document.createTextNode("contact them with 'contact us'");
+var b = document.createElement("br");
+
+his.appendChild(t);
+his.appendChild(b);
+his.appendChild(g);
+} else if (text.value == "color") {
+var t = document.createTextNode("[Bot] You can change the");
+var c = document.createElement("br");
+var g = document.createTextNode("current color. its currently " + cColor);
+var b = document.createElement("br");
+
+his.appendChild(t);
+his.appendChild(b);
+his.appendChild(g);
+his.appendChild(c);
+} else if (text.value == "color 2") {
+cColor = 2;
+var t = document.createTextNode("[Bot] You changed the color");
+var c = document.createElement("br");
+var g = document.createTextNode("current color is now " + cColor + " or red");
+var b = document.createElement("br");
+
+his.appendChild(t);
+his.appendChild(b);
+his.appendChild(g);
+his.appendChild(c);
+chatbot.style.backgroundColor = "#ff4444";
+} else if (text.value == "color 3") {
+cColor = 3;
+var t = document.createTextNode("[Bot] You changed the color");
+var c = document.createElement("br");
+var g = document.createTextNode("current color is now " + cColor + " or green");
+var b = document.createElement("br");
+
+his.appendChild(t);
+his.appendChild(b);
+his.appendChild(g);
+his.appendChild(c);
+chatbot.style.backgroundColor = "44ff44";
+} else if (text.value == "color 4") {
+cColor = 4;
+var t = document.createTextNode("[Bot] You changed the color");
+var c = document.createElement("br");
+var g = document.createTextNode("current color is now " + cColor + " or blue");
+var b = document.createElement("br");
+
+his.appendChild(t);
+his.appendChild(b);
+his.appendChild(g);
+his.appendChild(c);
+chatbot.style.backgroundColor = "#4444ff";
+} else if (text.value == "color 1") {
+cColor = 1;
+var t = document.createTextNode("[Bot] You changed the color");
+var c = document.createElement("br");
+var g = document.createTextNode("current color is now " + cColor + " or gray");
+var b = document.createElement("br");
+
+his.appendChild(t);
+his.appendChild(b);
+his.appendChild(g);
+his.appendChild(c);
+chatbot.style.backgroundColor = "#444444";
+} else {
+var answer = Math.floor((Math.random() * 10) + 1);
+}
+
+if (answer == 1) {
+var t = document.createTextNode("[Bot] Hello User!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+} else if (answer == 2) {
+var t = document.createTextNode("[Bot] Im glad you asked!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+} else if (answer == 3) {
+var t = document.createTextNode("[Bot] See progress in the log!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+} else if (answer == 4) {
+var t = document.createTextNode("[Bot] I AM AUTONEMOUS!!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+} else if (answer == 5) {
+var t = document.createTextNode("[Bot] Subscribe to alexfarlig!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+} else if (answer == 6) {
+var t = document.createTextNode("[Bot] chocelate cake is way");
+var t2 = document.createTextNode("better than strawberry icecream!!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+his.appendChild(t2);
+} else if (answer == 7) {
+var t = document.createTextNode("[Bot] My name is Jeff!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+} else if (answer == 8) {
+var t = document.createTextNode("[Bot] Nobody earns from nobody's work!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+} else if (answer == 9) {
+var t = document.createTextNode("[Bot] Pi loves Pie but Pie doesen't love Pi!");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+} else if (answer == 10) {
+var t = document.createTextNode("[Bot] i am random :P");
+var b = document.createElement("br");
+his.appendChild(t);
+his.appendChild(b);
+}
+
+
+function clear() {
+for (x = 0; x <= 200; x++) {
+var b = document.createElement("br");
+his.appendChild(b);
+}
+}
+text.value = "";
+
+his.scrollTop = his.scrollHeight;
+chatbot.scrollTop = chatbot.scrollHeight;
+
+var b = document.createElement("br");
+
+} else {
+alert("please type something!");
+}
+}
+
+function moof() {
+
+if (status == 0) {
+chatbot.style.bottom = "0px";
+ocd2.innerHTML = "▼";
+ocd2.style.right = "1";
+status++
+} else if (status == 1) {
+chatbot.style.bottom = "-150px";
+ocd2.innerHTML = "▲";
+ocd2.style.right = "1";
+status++
+} else if (status >= 2) {
+status = 0;
+chatbot.style.bottom = "0px";
+ocd2.innerHTML = "▼";
+ocd2.style.right = "1";
+status++
+}
+}
+//chatbot script end
+
 var online = navigator.onLine;
 
 var pka = document.getElementById("pka");
@@ -417,10 +697,6 @@ var bout = document.getElementById("about");
 var dark = document.getElementById("dark");
 
 var test =  document.getElementById("test");
-
-var open = false;
-var open2 = false;
-var error = false;
 
 /*pka.onclick = function() {nu()}
 
@@ -525,6 +801,5 @@ err.innerHTML = "an error has occured";
 document.addEventListener('contextmenu', event => event.preventDefault());
 </script>
 
-
-
+</script>
 </body></html>
