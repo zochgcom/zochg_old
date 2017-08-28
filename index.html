@@ -39,13 +39,13 @@ height: 160px;
 #name {
 width: 171px;
 margin-top: 0px;
-margin-bottom: 5px;
+margin-bottom: 50px;
 }
 
 #send {
 width: 45px;
 margin-top: 0px;
-margin-bottom: 5px;
+margin-bottom: 50px;
 }
 
 #cp {
@@ -451,6 +451,7 @@ overflow: auto;
 </div>
 
 <script>
+var chatbot = document.getElementById("chatbot");
 var rainbow = false;
 var asked = false;
 var cColor = 1;
@@ -459,6 +460,10 @@ var open2 = false;
 var error = false;
 
 //Chatbot script
+
+window.mobilecheck = function() {
+chatbot.style.height: "162";
+};
 
  function handle(e){
         if(e.keyCode === 13){
