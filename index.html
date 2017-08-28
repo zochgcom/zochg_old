@@ -461,9 +461,9 @@ var error = false;
 
 //Chatbot script
 
-window.mobilecheck = function() {
-chatbot.style.height: "162";
-};
+if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+	chatbot.style.height = "162";
+   }
 
  function handle(e){
         if(e.keyCode === 13){
