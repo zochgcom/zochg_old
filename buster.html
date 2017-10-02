@@ -1,5 +1,5 @@
 <html><head>
-<link rel="shortcut icon" href="lol.ico"/>
+<link rel="shortcut icon" href="lol.ico">
 <title>         Zochg</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -472,19 +472,19 @@ border-top: 1px solid white;
 <a class="a-orange" id="" href="dex.html"><h1 id="menuitem">Donate</h1></a>
 </li>
 
-<li id="" style="position: fixed; bottom: 0px; border-top: 0px solid black; width: 100%; text-align: center;">
+<li id="" style="position: fixed; bottom: 0px; border-top: 0px solid black; width: 100%; text-align: center;" onclick="menu()">
 <span class="close-btn" id=""><h1 id="menuitem" class="close-btn">X</h1></span>
 </li>
 
 </ul>
 </div>
 
-<div id="chatbot" onselectstart='return false;'>
-<label style="cursor:url(curs2.png), auto;">Chatbot</label><a id="ocd" onclick="moof()"><label id="ocd2" style="position: fixed; right: 1; cursor:url(curs2.png), auto;">▲</label></a>
+<div id="chatbot" onselectstart="return false;">
+<label style="cursor:url(curs2.png), auto;">Chatbot</label><a id="ocd" onclick="moof()"><label id="ocd2" style="position: fixed; right: 1; cursor:url(curs2.png), auto;">?</label></a>
 <div id="his">
 </div>
-<input spellcheck="false" autocomplete="off" type="text" id="chat" placeholder="ask me something!" onkeypress="handle(event)" style="resize: none; width: 49%;"></input>
-<input type="text" autocomplete="off" id="name" spellcheck="false" placeholder="What is your name?" maxlength="10" style="width: 49%"></input><br><br>
+<input spellcheck="false" autocomplete="off" type="text" id="chat" placeholder="ask me something!" onkeypress="handle(event)" style="resize: none; width: 49%;">
+<input type="text" autocomplete="off" id="name" spellcheck="false" placeholder="What is your name?" maxlength="10" style="width: 49%"><br><br>
 <button id="send" onclick="send()">send</button>
 </div>
 
@@ -552,10 +552,10 @@ border-top: 1px solid white;
 </div>
 
 <div id="about" style="display: none;">
-<h3 style="width: 100%; height: 60px; background-color: #111111; margin-top: -0px; margin-bottom: -50px; color: white;" >Download</h3>
+<h3 style="width: 100%; height: 60px; background-color: #111111; margin-top: -0px; margin-bottom: -50px; color: white;">Download</h3>
 <p style="color: white;">Here you can download our wierd games</p>
 <ul>
-<li title="Download Pe'Kay"><a href="http://download987.mediafireuserdownload.com/g8o2hpww4t8g/pkv9mhmf64cfr6m/Pe%5C%27Kay.zip" download class="a-orange" id="pka"><p>Download Pe'Kay</p></a>
+<li title="Download Pe'Kay"><a href="http://download987.mediafireuserdownload.com/g8o2hpww4t8g/pkv9mhmf64cfr6m/Pe%5C%27Kay.zip" download="" class="a-orange" id="pka"><p>Download Pe'Kay</p></a>
 <!--pekay tinyurl picture-->
 <img src="https://tinyurl.com/ybjstzvn" alt="Pe'Kay logo">
 
@@ -568,30 +568,31 @@ border-top: 1px solid white;
 <h3 style="text-align: center;">Jar Clicker</h3>
 <img src="jc.png" width="80%" style="text-align: center;" alt="Picture of Jar Clicker">
 <br>
-	<a href="http://zochgcom.github.io/jar-clicker" class="a-blue"><h4>Play Jar clicker<h4></a>
-</div>
+	<a href="http://zochgcom.github.io/jar-clicker" class="a-blue"><h4>Play Jar clicker</h4></a><h4><a href="http://zochgcom.github.io/jar-clicker" class="a-blue"></a>
+</h4></div>
 
 <!--<script src="./JS/Main.js"></script>-->
 
 <script>
-var isOpen = false;
-var menBtn = document.getElementById("un2");
-var menu = document.getElementById("menu");
 
-menBtn.onclick = function() {menu()};
-
-function menu() {
-if (isOpen == false) {
-menu.style.bottom = "0px";
-isOpen = true;
-} else {
-menu.style.bottom = "-100%";
-isOpen = false;
-}
-}
 </script>
 
 <script>
+
+var isOpen = false;
+var menBtn = document.getElementById("un2");
+var menuI = document.getElementById("menu");
+
+function menu() {
+if (isOpen == false) {
+menuI.style.bottom = "0px";
+isOpen = true;
+} else {
+menuI.style.bottom = "-100%";
+isOpen = false;
+}
+}
+
 var chatbot = document.getElementById("chatbot");
 var rainbow = false;
 var asked = false;
@@ -861,18 +862,18 @@ function moof() {
 
 if (status == 0) {
 chatbot.style.bottom = "0px";
-ocd2.innerHTML = "▼";
+ocd2.innerHTML = "?";
 ocd2.style.right = "1";
 status++
 } else if (status == 1) {
 chatbot.style.bottom = "-150px";
-ocd2.innerHTML = "▲";
+ocd2.innerHTML = "?";
 ocd2.style.right = "1";
 status++
 } else if (status >= 2) {
 status = 0;
 chatbot.style.bottom = "0px";
-ocd2.innerHTML = "▼";
+ocd2.innerHTML = "?";
 ocd2.style.right = "1";
 status++
 }
@@ -895,6 +896,8 @@ var bout = document.getElementById("about");
 var dark = document.getElementById("dark");
 
 var test =  document.getElementById("test");
+
+menBtn.onclick = function() {menu()};
 
 /*pka.onclick = function() {nu()}
 
@@ -1014,5 +1017,6 @@ function enter() {
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 </script>
+
 
 </body></html>
